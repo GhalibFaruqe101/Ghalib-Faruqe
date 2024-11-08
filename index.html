@@ -78,6 +78,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Educational Journey, Certificates, Experience, and Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #060606;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgb(255, 255, 255);
+            transition: transform 0.3s ease;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .card-info p {
+            margin-bottom: 5px;
+            color: #7f8c8d;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resume-container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .resume-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .action-button {
+            display: inline-block;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-button:hover {
+            background-color: rgb(15, 165, 148);
+            color: #f4f5f7;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pdf-viewer {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Professional Profile</h1>
+        
+        <h2 class="section-title">Educational Journey</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="img/aiub.png" alt="American International University-Bangladesh (AIUB)">
+                <div class="card-info">
+                    <h3>American International University-Bangladesh (AIUB)</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p>2023-2027</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/baf.png" alt="BAF Shaheen College, Kurmitola">
+                <div class="card-info">
+                    <h3>BAF Shaheen College, Kurmitola</h3>
+                    <p>College Education</p>
+                    <p>2019-2021</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/adam.png" alt="Adamjee Cantonment Public School">
+                <div class="card-info">
+                    <h3>Adamjee Cantonment Public School</h3>
+                    <p>School Education</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Certificates</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="img/js.png" alt="JavaScript Certificate">
+                <div class="card-info">
+                    <h3>JavaScript</h3>
+                    <p>Issued by: Cisco</p>
+                   
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/linux.png" alt="Linux Certificate">
+                <div class="card-info">
+                    <h3>linux</h3>
+                    <p>Issued by: Cisco</p>
+                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/ml.png" alt="Machine Learning Certificate">
+                <div class="card-info">
+                    <h3>Machine Learning</h3>
+                    <p>Issued by: Kaggle</p>
+                    
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/cryptography.png" alt="Cryptography Certificate">
+                <div class="card-info">
+                    <h3>Cryptography</h3>
+                    <p>Issued by: Cybrary</p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="img/aisec.png" alt="AIESEC in Bangladesh">
+                <div class="card-info">
+                    <h3>AIESEC in Bangladesh</h3>
+                    <p>OGX: Team Leader.</p>
+                    <p>Duration: Feb 2024 - Present</p>
+                    <p>•Provide mentorship and workshops form team members and improve team
+                        performance. <br>
+                        • Coordinate with international chapters to facilitate smooth and successful
+                        replacement for students’ overseas internships program.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/red.png" alt="Student Research Assistant">
+                <div class="card-info">
+                    <h3> AIUB Research for Development Club</h3>
+                    <p>Team Leader</p>
+                    <p>Institution: AIUB </p>
+                    <p>Duration: May 2024 - Present</p>
+                    <p>• Lead a team of 4 members in workshops, and discussions focused on research
+                        methodologies and academic skills.<br>
+                        • Serve as a liaison between club members and faculty, facilitating communication
+                        about research events, opportunities, and resources available to the team.</p>
+                </div>
+            </div>
+            <!-- Add more experience cards as needed -->
+        </div>
+
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-container">
+            <div class="resume-actions">
+                <a href="https://drive.google.com/file/d/1hGQivxk2r5eqV-7qBAVBjQfI1FuDUPTr/preview" class="action-button" download>Download PDF</a>
+            </div>
+            <iframe class="pdf-viewer" 
+                src="https://drive.google.com/file/d/1hGQivxk2r5eqV-7qBAVBjQfI1FuDUPTr/preview"
+                width="100%" height="800">
+            </iframe>
+        </div>
+    </div>
+
+    <script src="js/gsap.min.js"></script>
+    <script src="js/split-type.min.js"></script>
+    <script type="module" src="js/effect-4/index.js"></script>
+</body>
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en" class="o-js loading">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Educational Journey and Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <style>
@@ -263,202 +523,4 @@
     <script src="js/split-type.min.js"></script>
     <script type="module" src="js/effect-4/index.js"></script>
 </body>
-</html>
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Educational Journey</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .education-card {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .education-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .education-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .education-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .education-info {
-            padding: 20px;
-        }
-
-        .education-info h2 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .education-info p {
-            margin-bottom: 5px;
-            color: #7f8c8d;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>My Educational Journey</h1>
-        <div class="education-grid">
-            <div class="education-card">
-                <img src="/placeholder.svg?height=200&width=300" alt="University of Example">
-                <div class="education-info">
-                    <h2>University of Example</h2>
-                    <p>Bachelor of Science in Computer Science</p>
-                    <p>2015-2019</p>
-                </div>
-            </div>
-            <div class="education-card">
-                <img src="/placeholder.svg?height=200&width=300" alt="Tech Institute">
-                <div class="education-info">
-                    <h2>Tech Institute</h2>
-                    <p>Master of Science in Artificial Intelligence</p>
-                    <p>2019-2021</p>
-                </div>
-            </div>
-            <div class="education-card">
-                <img src="/placeholder.svg?height=200&width=300" alt="Online Learning Platform">
-                <div class="education-info">
-                    <h2>Online Learning Platform</h2>
-                    <p>Certificate in Web Development</p>
-                    <p>2022</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html> -->
-<!-- 
-<!DOCTYPE html>
-<html lang="en" class="o-js loading">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-    <style>
-      
-      .resume-actions {
-        
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 1rem;
-      }
-      .action-button {
-        display: inline-block;
-        background-color: #0a0a0a;
-        color: #ffffff;
-        padding: 0.75rem 1.5rem;
-        text-decoration: none;
-        border-radius: 4px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        border: none;
-        cursor: pointer;
-      }
-      .action-button:hover {
-        background-color: rgb(15, 165, 148);
-        color:#f4f5f7;
-      }
-      #pdf-viewer {
-        width: 100%;
-        height: 800px;
-        border: none;
-      }
-      .res{
-        text-align: center;
-      }
-    
-    </style>
-  </head>
-
-    <main>
-    
-     
-
-         <div class="res"><h1>Resume</h1><div>
-         <div class="resume-container">
-           <div class="resume-actions">
-             <a href="https://drive.google.com/file/d/1hGQivxk2r5eqV-7qBAVBjQfI1FuDUPTr/preview" class="action-button" download>Download PDF</a>
-            </div>
-            <iframe class="pdf-viewer" 
-            src="https://drive.google.com/file/d/1hGQivxk2r5eqV-7qBAVBjQfI1FuDUPTr/preview"
-            width="800" height="500">
-          </iframe>
-         
-        </div>
-      </section>
-    </div>
-  </a>
-    </main>
-    
-    <script src="js/gsap.min.js"></script>
-    <script src="js/split-type.min.js"></script>
-    <script type="module" src="js/effect-4/index.js"></script>
-  </body>
 </html> -->
