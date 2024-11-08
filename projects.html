@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="o-js loading">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/project.css" />
+    <style>
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+      .project-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+        /* height: 400px; */
+        height: 20rem;
+        transition: transform 0.3s ease;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+      .project-card:focus {
+        outline: 3px solid #007bff;
+        outline-offset: 2px;
+      }
+      .project-card:hover,
+      .project-card:focus {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .project-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 0.5rem;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .project-description {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 1rem;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+      }
+      .project-card:hover .project-title {
+        transform: translateY(100%);
+      }
+      .project-card:hover .project-description {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="hero_2">
+    <main>
+      <header class="frame">
+        <h1 class="frame__title">
+          <a href="index.html">Ghalib Faruqe</a>
+        </h1>  
+        <a class="frame__linkedin hover-effect hover-effect--cursor-square" href="#">Linkedin</a>
+        <a class="frame__github hover-effect hover-effect--cursor-square" href="https://github.com/GhalibFaruqe101">GitHub</a>
+        <a class="frame__home hover-effect hover-effect--cursor-square" href="projects.html">Projects</a>
+        <a class="frame__subs hover-effect hover-effect--cursor-square" href="books.html">Books</a>
+      </header>
+      <section class="content">
+        <h2 class="content__title">Projects</h2>
+        <div class="projects-grid">
+          <a href="https://github.com/GhalibFaruqe101/Rock-Paper-Scissor-using-JS" 
+          class="project-card" 
+          aria-label="View details for Project 1" 
+          style="background-image: url(img/rks.png); background-size: contain; background-repeat: no-repeat; background-position: center;">
+          <h3 class="project-title">Project 1</h3>
+          <div class="project-description">
+            <h3>Rock-Paper-Scissor-using-JS</h3>
+            <p>A simple beginner-friendly introduction to JavaScript, CSS, and HTML, this project offers learners to grasp fundamental concepts without overwhelming complexity. This web version allows you to play against the machine/computer.</p>
+          </div>
+        </a>
+       
+          <a href="https://github.com/GhalibFaruqe101/ML-self-learning-/tree/main/RainfallDetection" 
+          class="project-card" 
+          aria-label="View details for Project 2" 
+          style="background-image: url(img/detect.png); background-size: contain; background-repeat: no-repeat; background-position: center;">            <h3 class="project-title">Project 2</h3>
+            <div class="project-description">
+              <h3>Rainfall Detection</h3>
+              <p>Rainfall detection using machine learning. Model used in this project is SVC and XGoost</p>
+            </div>
+          </a>
+
+          <a href="/project3.html" 
+          class="project-card" 
+          aria-label="View details for Project 3" 
+          style="background-image: url(img/pass.png); background-size: contain; background-repeat: no-repeat; background-position: center;">            <h3 class="project-title">Project 2</h3>
+            <h3 class="project-title">Project 3</h3>
+            <div class="project-description">
+              <h3>Password Generator</h3>
+              <p>This is a simple password generator application built using Python and Tkinter. It allows users to generate secure, random passwords of a specified length and provides options to clear and copy the generated password.</p>
+            </div>
+          </a>
+          <a href="https://github.com/GhalibFaruqe101/password_manager" 
+          class="project-card" 
+          aria-label="View details for Project 4" 
+          style="background-image: url(img/pass.png); background-size: contain; background-repeat: no-repeat; background-position: center;">            <h3 class="project-title">Project 2</h3>
+            <h3 class="project-title">Project 4</h3>
+            <div class="project-description">
+              <h3>Command-line password manager</h3>
+              <p>This is a simple command-line password manager written in Python. It allows users to register with a master password, log in, and securely store and retrieve passwords for various websites. Passwords are encrypted using the cryptography library to ensure security.</p>
+            </div>
+          </a>
+          <a href="resume.html" class="project-card" aria-label="View details for Project 4" style="background-image: url('https://picsum.photos/seed/project4/300/200'); background-size: cover;">
+            <h3 class="project-title">Project 4</h3>
+            <div class="project-description">
+              <h3>Project 4</h3>
+              <p>Project 4 was a full-stack web application for a local non-profit organization. I used Node.js and Express for the backend, and React for the frontend, creating a seamless and efficient platform for managing donations and volunteers.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+    
+    <script src="js/gsap.min.js"></script>
+    <script src="js/split-type.min.js"></script>
+    <script type="module" src="js/effect-4/index.js"></script>
+  </body>
+</html>
