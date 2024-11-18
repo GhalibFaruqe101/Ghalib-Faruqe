@@ -40,7 +40,7 @@
  }  */
 
  body {
-    background-image:  url(../img/prof.png);
+    /* background-image:  url(../img/prof.png); */
 	
     background-size: 50rem;
     background-position: right top;
@@ -214,7 +214,7 @@ a:focus-visible {
 	color: rgb(252, 251, 251);
 	background-color: #0a0a0a;
 	/* z-index: -1; */
-	width: 70%;
+	width: 100%;
 }
 
 .content__title {
@@ -241,15 +241,15 @@ a:focus-visible {
 .content p {
 	padding: 5vh var(--page-padding) 0;
 	font-size: 20px;
-	max-width: 900px;
-	text-align: left;
+	max-width: 100%;
+	text-align: justify;
 	width: 100%;
 }
 
 .list__item {
 	font-size: var(--font-size-list-item);
 	cursor: pointer;
-	width: 50%;
+	width: 100%;
 	display: grid; 
 	justify-items: center;
 	color: var(--color-list-item);
