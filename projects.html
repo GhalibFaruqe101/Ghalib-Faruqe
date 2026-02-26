@@ -1,393 +1,1321 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Achievements and Projects</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects & Achievements — Ghalib Faruqe</title>
+    <meta name="description"
+        content="Projects and achievements of Ghalib Faruqe — CSE student, developer, and tech enthusiast at AIUB.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        :root {
+            --bg: #050810;
+            --bg2: #0b0f1a;
+            --card: rgba(255, 255, 255, 0.04);
+            --card-hover: rgba(21, 175, 192, 0.08);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 179, 237, 0.4);
+            --accent: #63b3ed;
+            --accent2: #9f7aea;
+            --accent3: #68d391;
+            --text: #e2e8f0;
+            --text-muted: #718096;
+            --glow: rgba(99, 179, 237, 0.15);
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-            padding-top: 60px; /* Add padding to account for fixed navbar */
+            font-family: var(--font-sans);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* ── CANVAS ── */
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .section {
-            padding: 60px 0;
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar {
+            width: 5px;
         }
 
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #2c3e50;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 99px;
         }
 
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .card-description {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .card-date {
-            font-size: 0.9rem;
-            color: #777;
-            font-style: italic;
-        }
-
-        .card-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 40px;
-            height: 40px;
-            background-color: #3498db;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #3498db;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .project-link:hover {
-            background-color: #2980b9;
-        }
-
-        /* Navbar styles */
-        .navbar {
+        /* ── HEADER ── */
+        header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            background-color: #2c3e50;
-            padding: 10px 0;
+            right: 0;
             z-index: 1000;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(5, 8, 16, 0.75);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
         }
 
-        .navbar-container {
+        header.scrolled {
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-logo::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        nav {
             display: flex;
-            justify-content: space-between;
+            gap: 0.25rem;
             align-items: center;
+        }
+
+        nav a {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            transition: all 0.25s;
+            letter-spacing: 0.04em;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            border-color: var(--border-hover);
+            background: var(--glow);
+        }
+
+        nav a.active {
+            color: var(--accent);
+            border-color: rgba(99, 179, 237, 0.3);
+            background: rgba(99, 179, 237, 0.07);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 99px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .nav-mobile {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(5, 8, 16, 0.97);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 1.5rem 2rem;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+        }
+
+        .nav-mobile.open {
+            display: flex;
+        }
+
+        .nav-mobile a {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+
+        .nav-mobile a:hover {
+            color: var(--accent);
+        }
+
+        /* ── WRAPPER ── */
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            padding-top: 64px;
+        }
+
+        /* ── SECTION BASE ── */
+        section {
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        .navbar-logo {
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .navbar-menu {
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
             display: flex;
-            list-style-type: none;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .navbar-item {
-            margin-left: 20px;
+        .section-label::after {
+            content: '';
+            flex: 1;
+            max-width: 60px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.4;
         }
 
-        .navbar-link {
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
             color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            margin-bottom: 3.5rem;
         }
 
-        .navbar-link:hover {
-            color: #3498db;
+        .section-title span {
+            color: var(--accent);
         }
 
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar-container {
-                flex-direction: column;
-            }
-
-            .navbar-menu {
-                margin-top: 10px;
-            }
-
-            .navbar-item {
-                margin-left: 0;
-                margin-right: 20px;
-            }
+        /* ── DIVIDER ── */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
-        @keyframes fadeInUp {
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(24px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .card {
-            animation: fadeInUp 0.5s ease-out forwards;
+        .reveal {
             opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        .reveal-delay-6 {
+            transition-delay: 0.6s;
+        }
+
+        /* ── HERO BANNER ── */
+        .page-hero {
+            min-height: 36vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            position: relative;
+        }
+
+        .page-hero-tag {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.2s forwards;
+        }
+
+        .page-hero-title {
+            font-family: var(--font-sans);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--accent2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.35s forwards;
+        }
+
+        .page-hero-sub {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.5s forwards;
+        }
+
+        /* ── ORBIT ANIMATION SCENE ── */
+        .orbit-scene {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        /* central glow orb */
+        .orbit-core {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, var(--accent2), var(--accent));
+            box-shadow:
+                0 0 40px rgba(99, 179, 237, 0.5),
+                0 0 80px rgba(159, 122, 234, 0.3),
+                0 0 120px rgba(99, 179, 237, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            animation: corePulse 4s ease-in-out infinite;
+        }
+
+        .orbit-core i {
+            font-size: 2rem;
+            color: #fff;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+        }
+
+        @keyframes corePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 40px rgba(99, 179, 237, 0.5), 0 0 80px rgba(159, 122, 234, 0.3);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 60px rgba(99, 179, 237, 0.7), 0 0 120px rgba(159, 122, 234, 0.5);
+                transform: scale(1.06);
+            }
+        }
+
+        /* orbit ring */
+        .orbit-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px dashed rgba(99, 179, 237, 0.2);
+        }
+
+        .orbit-ring-1 {
+            width: 240px;
+            height: 240px;
+        }
+
+        .orbit-ring-2 {
+            width: 420px;
+            height: 420px;
+            border-style: dotted;
+            border-color: rgba(159, 122, 234, 0.15);
+        }
+
+        /* each orbiting card wrapper */
+        .orbit-item {
+            position: absolute;
+            width: 165px;
+        }
+
+        /* The CSS orbit: we animate the rotation of the pos-wrapper,
+           then counter-rotate the card so it stays upright. */
+        .orbit-pos {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+        }
+
+        .orbit-arm {
+            position: absolute;
+            /* arm length = orbit radius */
+            top: 0;
+            left: 0;
+            transform-origin: 0 0;
+        }
+
+        /* each orbit-pos gets unique radius + duration via inline style vars */
+        @keyframes orbit-cw {
+            from {
+                transform: rotate(var(--start));
+            }
+
+            to {
+                transform: rotate(calc(var(--start) + 360deg));
+            }
+        }
+
+        @keyframes orbit-ccw {
+            from {
+                transform: rotate(var(--start));
+            }
+
+            to {
+                transform: rotate(calc(var(--start) - 360deg));
+            }
+        }
+
+        @keyframes counter-cw {
+            from {
+                transform: translate(-50%, -50%) rotate(calc(-1*var(--start)));
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(calc(-1*(var(--start) + 360deg)));
+            }
+        }
+
+        @keyframes counter-ccw {
+            from {
+                transform: translate(-50%, -50%) rotate(calc(-1*var(--start)));
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(calc(-1*(var(--start) - 360deg)));
+            }
+        }
+
+        /* ── PROJECT MINI CARD (in orbit) ── */
+        .proj-card {
+            width: 165px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+            position: relative;
+        }
+
+        .proj-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(99, 179, 237, 0.08), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .proj-card:hover {
+            border-color: var(--border-hover);
+            background: var(--card-hover);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 179, 237, 0.15);
+        }
+
+        .proj-card:hover::before {
+            opacity: 1;
+        }
+
+        .proj-card-img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.3s, transform 0.4s;
+        }
+
+        .proj-card:hover .proj-card-img {
+            filter: brightness(1);
+            transform: scale(1.05);
+        }
+
+        .proj-card-body {
+            padding: 0.7rem 0.85rem 0.9rem;
+        }
+
+        .proj-card-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .proj-card-desc {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .proj-card-tag {
+            display: inline-block;
+            margin-top: 0.45rem;
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 99px;
+            background: rgba(99, 179, 237, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(99, 179, 237, 0.2);
+        }
+
+        /* ── FULL PROJECT GRID (below orbit) ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .full-proj-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.35s cubic-bezier(.25, .46, .45, .94),
+                border-color 0.35s, box-shadow 0.35s, background 0.35s;
+            position: relative;
+        }
+
+        .full-proj-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(99, 179, 237, 0.07) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s;
+            pointer-events: none;
+        }
+
+        .full-proj-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(99, 179, 237, 0.1);
+            background: var(--card-hover);
+        }
+
+        .full-proj-card:hover::before {
+            opacity: 1;
+        }
+
+        .full-proj-img-wrap {
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .full-proj-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: transform 0.5s cubic-bezier(.25, .46, .45, .94), filter 0.35s;
+        }
+
+        .full-proj-card:hover .full-proj-img-wrap img {
+            transform: scale(1.07);
+            filter: brightness(1);
+        }
+
+        .full-proj-body {
+            padding: 1.4rem 1.6rem 1.7rem;
+        }
+
+        .full-proj-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .full-proj-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .full-proj-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .proj-badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 99px;
+            background: rgba(99, 179, 237, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(99, 179, 237, 0.25);
+        }
+
+        .proj-link-btn {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid rgba(99, 179, 237, 0.3);
+            background: rgba(99, 179, 237, 0.06);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .proj-link-btn:hover {
+            background: rgba(99, 179, 237, 0.15);
+            box-shadow: 0 4px 14px rgba(99, 179, 237, 0.2);
+        }
+
+        /* ── ACHIEVEMENTS GRID ── */
+        .ach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ach-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s, background 0.35s;
+            position: relative;
+        }
+
+        .ach-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(104, 211, 145, 0.06), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.35s;
+            pointer-events: none;
+        }
+
+        .ach-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(104, 211, 145, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(104, 211, 145, 0.08);
+            background: rgba(104, 211, 145, 0.04);
+        }
+
+        .ach-card:hover::before {
+            opacity: 1;
+        }
+
+        .ach-img-wrap {
+            overflow: hidden;
+            height: 176px;
+        }
+
+        .ach-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: transform 0.5s, filter 0.35s;
+        }
+
+        .ach-card:hover .ach-img-wrap img {
+            transform: scale(1.07);
+            filter: brightness(1);
+        }
+
+        .ach-body {
+            padding: 1.1rem 1.3rem 1.4rem;
+        }
+
+        .ach-icon {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .ach-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .ach-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.6rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(99, 179, 237, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 179, 237, 0.5);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 720px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .orbit-scene {
+                min-height: 300px;
+                transform: scale(0.7);
+                transform-origin: top center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ach-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="navbar-logo">Md. Ghalib Faruqe</a>
-            <ul class="navbar-menu">
-                <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-                <li class="navbar-item"><a href="#achievements" class="navbar-link">Achievements</a></li>
-                <li class="navbar-item"><a href="#projects" class="navbar-link">Projects</a></li>
-            </ul>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- HEADER -->
+    <header id="main-header">
+        <a href="index.html" class="nav-logo">ghalib.dev</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#projects" class="active">Projects</a>
+        </nav>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
         </div>
-    </nav>
+    </header>
 
-    <section id="achievements" class="section">
-        <div class="container">
-            <h2>Achievements</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="img/aiesec.jpg" alt="MUN" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">AIESEC</h3>
-                        <p class="card-description"> At Annual AIESEC Global Leadership Summit.</p>
-                        <!-- <p class="card-date">June 15, 2022</p> -->
-                    </div>
-                    <div class="card-icon">💼</div>
+    <div class="nav-mobile" id="nav-mobile">
+        <a href="index.html">Home</a>
+        <a href="#achievements" class="nav-mobile-link">Achievements</a>
+        <a href="#projects" class="nav-mobile-link">Projects</a>
+    </div>
+
+    <div class="wrapper">
+
+        <!-- HERO BANNER -->
+        <div class="page-hero">
+            <div class="page-hero-tag">// portfolio showcase</div>
+            <h1 class="page-hero-title">Projects &amp; <span
+                    style="background:linear-gradient(135deg,var(--accent3),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Achievements</span>
+            </h1>
+            <p class="page-hero-sub">Things I've built, done &amp; proud of</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ── ORBIT SECTION ── -->
+        <section id="projects" style="padding-top:5rem;">
+            <div class="section-label reveal">05 — Projects</div>
+            <h2 class="section-title reveal">My <span>Projects</span></h2>
+
+            <!-- ORBIT ANIMATION -->
+            <div class="orbit-scene" id="orbit-scene" aria-hidden="true">
+                <!-- rings -->
+                <div class="orbit-ring orbit-ring-1"></div>
+                <div class="orbit-ring orbit-ring-2"></div>
+
+                <!-- core -->
+                <div class="orbit-core">
+                    <i class="fas fa-code"></i>
                 </div>
 
+                <!--
+                Each .orbit-pos is centered at origin.
+                CSS vars:
+                  --r:     orbit radius (px)
+                  --dur:   revolution duration
+                  --start: initial angle (deg)
+                  --dir:   cw or ccw
+            -->
 
-                <div class="card">
-                    <img src="img/conference.png" alt="conference" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Virtual Conference</h3>
-                        <p class="card-description"> Attended Virtual Conference By IEEE.</p>
-                        <!-- <p class="card-date">June 15, 2022</p> -->
-                    </div>
-                    <div class="card-icon">💼</div>
-                    </div>
-                <div class="card">
-                    <img src="img/mun.jpeg" alt="MUN" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">NDC-MUN</h3>
-                        <p class="card-description">Participated in the NDC-MUN under Arab League represnting Iraq.</p>
-                        <!-- <p class="card-date">June 15, 2022</p> -->
-                    </div>
-                    <div class="card-icon">💼</div>
-                </div>
-                <div class="card">
-                    <img src="img/cricket.jpg" alt="cricket" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Gulshan Youth Club</h3>
-                        <p class="card-description">I played cricket for the Gulshan Youth Club under 16.</p>
-                        <!-- <p class="card-date">September 3, 2021</p> -->
-                    </div>
-                    <div class="card-icon">🏏</div>
-                </div>
-               
-                    
-                    
-            
-                <div class="card">
-                    <img src="img/wc.jpeg" alt="WC" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">ICC World Cup</h3>
-                        <p class="card-description">ICC world Cup and picture with formar captain of Srilanka.</p>
-                        <!-- <p class="card-date">August 12, 2023</p> -->
-                    </div>
-                    <div class="card-icon">🏏</div>
+                <!-- Card 1 — Login Page -->
+                <div class="orbit-pos" style="--r:120px; --dur:18s; --start:0deg; --dir:cw;">
+                    <a href="https://github.com/GhalibFaruqe101/Login-page" class="proj-card" target="_blank"
+                        rel="noopener">
+                        <img src="img/login.png" alt="Login Page" class="proj-card-img">
+                        <div class="proj-card-body">
+                            <div class="proj-card-title">Login Page</div>
+                            <div class="proj-card-desc">Minimalistic & responsive login UI.</div>
+                            <span class="proj-card-tag">HTML/CSS</span>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="card">
-                    <img src="img/som.jpeg" alt="WC" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Student Of The Month</h3>
-                        <p class="card-description">Got student of the month Certificate in my School.</p>
-                        <!-- <p class="card-date">August 12, 2023</p> -->
-                    </div>
-                    <div class="card-icon">🏏</div>
+                <!-- Card 2 — Password Manager -->
+                <div class="orbit-pos" style="--r:120px; --dur:18s; --start:120deg; --dir:cw;">
+                    <a href="https://github.com/GhalibFaruqe101/password_manager" class="proj-card" target="_blank"
+                        rel="noopener">
+                        <img src="img/pass_man.png" alt="Password Manager" class="proj-card-img">
+                        <div class="proj-card-body">
+                            <div class="proj-card-title">Password Manager</div>
+                            <div class="proj-card-desc">Encrypted CLI password vault in Python.</div>
+                            <span class="proj-card-tag">Python</span>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="card">
-                    <img src="img/car.jpeg" alt="WC" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Annual Competition</h3>
-                        <p class="card-description">Participated in Annual Competition.</p>
-                        <!-- <p class="card-date">August 12, 2023</p> -->
-                    </div>
-                    <div class="card-icon">🏏</div>
+                <!-- Card 3 — Rainfall Detection -->
+                <div class="orbit-pos" style="--r:120px; --dur:18s; --start:240deg; --dir:cw;">
+                    <a href="https://github.com/GhalibFaruqe101/ML-self-learning-/tree/main/RainfallDetection"
+                        class="proj-card" target="_blank" rel="noopener">
+                        <img src="img/detect.png" alt="Rainfall Detection" class="proj-card-img">
+                        <div class="proj-card-body">
+                            <div class="proj-card-title">Rainfall Detection</div>
+                            <div class="proj-card-desc">ML model for rainfall prediction.</div>
+                            <span class="proj-card-tag">ML / Python</span>
+                        </div>
+                    </a>
                 </div>
 
-                    
-                <div class="card">
-                    <img src="img/car2.jpeg" alt="Team Victory" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Art Competition</h3>
-                        <p class="card-description">Won for art competition</p>
-                        <p class="card-date">March 20, 2022</p>
-                    </div>
-                    <div class="card-icon">✍</div>
+                <!-- Card 4 — Rock Paper Scissors (outer ring) -->
+                <div class="orbit-pos" style="--r:210px; --dur:28s; --start:30deg; --dir:ccw;">
+                    <a href="https://github.com/GhalibFaruqe101/Rock-Paper-Scissor-using-JS/tree/main" class="proj-card"
+                        target="_blank" rel="noopener">
+                        <img src="img/rks.png" alt="Rock Paper Scissors" class="proj-card-img">
+                        <div class="proj-card-body">
+                            <div class="proj-card-title">Rock Paper Scissors</div>
+                            <div class="proj-card-desc">Fun JS browser game.</div>
+                            <span class="proj-card-tag">JavaScript</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 5 — Command Line (outer ring) -->
+                <div class="orbit-pos" style="--r:210px; --dur:28s; --start:174deg; --dir:ccw;">
+                    <a href="https://github.com/GhalibFaruqe101/CommandLine.py/tree/main" class="proj-card"
+                        target="_blank" rel="noopener">
+                        <img src="img/cmd.png" alt="Command Line" class="proj-card-img">
+                        <div class="proj-card-body">
+                            <div class="proj-card-title">Command Line Tool</div>
+                            <div class="proj-card-desc">Python CLI argument processor.</div>
+                            <span class="proj-card-tag">Python</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 6 — Password Generator (outer ring) -->
+                <div class="orbit-pos" style="--r:210px; --dur:28s; --start:300deg; --dir:ccw;">
+                    <a href="https://github.com/GhalibFaruqe101/password_generator" class="proj-card" target="_blank"
+                        rel="noopener">
+                        <img src="img/pass.png" alt="Password Generator" class="proj-card-img">
+                        <div class="proj-card-body">
+                            <div class="proj-card-title">Password Generator</div>
+                            <div class="proj-card-desc">Tkinter GUI random password tool.</div>
+                            <span class="proj-card-tag">Python / Tkinter</span>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="img/login.png" alt="Project 1" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Login-Page</h3>
-                        <p class="card-description">The page is designed to be minimalistic and responsive, suitable for integration into various web projects.</p>
-                        <!-- <p class="card-date">January - April 2023</p> -->
-                        <a href="https://github.com/GhalibFaruqe101/Login-page" class="project-link">View Project</a>
+            <!-- FULL PROJECT GRID -->
+            <div class="projects-grid">
+                <a href="https://github.com/GhalibFaruqe101/Login-page" class="full-proj-card reveal reveal-delay-1"
+                    target="_blank" rel="noopener">
+                    <div class="full-proj-img-wrap"><img src="img/login.png" alt="Login Page"></div>
+                    <div class="full-proj-body">
+                        <div class="full-proj-title">Login Page</div>
+                        <div class="full-proj-desc">A minimalistic, responsive login interface suitable for integration
+                            into various web projects. Clean layout with smooth transitions.</div>
+                        <div class="full-proj-footer">
+                            <span class="proj-badge">HTML / CSS</span>
+                            <span class="proj-link-btn"><i class="fab fa-github"></i> View on GitHub</span>
+                        </div>
                     </div>
-                    <div class="card-icon"></div>
+                </a>
+
+                <a href="https://github.com/GhalibFaruqe101/password_manager"
+                    class="full-proj-card reveal reveal-delay-2" target="_blank" rel="noopener">
+                    <div class="full-proj-img-wrap"><img src="img/pass_man.png" alt="Password Manager"></div>
+                    <div class="full-proj-body">
+                        <div class="full-proj-title">Password Manager</div>
+                        <div class="full-proj-desc">CLI-based password manager in Python. Users register with a master
+                            password and securely store/retrieve passwords using the cryptography library.</div>
+                        <div class="full-proj-footer">
+                            <span class="proj-badge">Python</span>
+                            <span class="proj-link-btn"><i class="fab fa-github"></i> View on GitHub</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/GhalibFaruqe101/ML-self-learning-/tree/main/RainfallDetection"
+                    class="full-proj-card reveal reveal-delay-3" target="_blank" rel="noopener">
+                    <div class="full-proj-img-wrap"><img src="img/detect.png" alt="Rainfall Detection"></div>
+                    <div class="full-proj-body">
+                        <div class="full-proj-title">Rainfall Detection</div>
+                        <div class="full-proj-desc">Machine learning system trained on historical rainfall data to
+                            predict future rainfall patterns using classification algorithms.</div>
+                        <div class="full-proj-footer">
+                            <span class="proj-badge">Machine Learning</span>
+                            <span class="proj-link-btn"><i class="fab fa-github"></i> View on GitHub</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/GhalibFaruqe101/Rock-Paper-Scissor-using-JS/tree/main"
+                    class="full-proj-card reveal reveal-delay-1" target="_blank" rel="noopener">
+                    <div class="full-proj-img-wrap"><img src="img/rks.png" alt="Rock Paper Scissors"></div>
+                    <div class="full-proj-body">
+                        <div class="full-proj-title">Rock Paper Scissors</div>
+                        <div class="full-proj-desc">Beginner-friendly browser game showcasing core HTML, CSS, and
+                            JavaScript fundamentals with interactive gameplay.</div>
+                        <div class="full-proj-footer">
+                            <span class="proj-badge">JavaScript</span>
+                            <span class="proj-link-btn"><i class="fab fa-github"></i> View on GitHub</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/GhalibFaruqe101/CommandLine.py/tree/main"
+                    class="full-proj-card reveal reveal-delay-2" target="_blank" rel="noopener">
+                    <div class="full-proj-img-wrap"><img src="img/cmd.png" alt="Command Line"></div>
+                    <div class="full-proj-body">
+                        <div class="full-proj-title">Command Line Tool</div>
+                        <div class="full-proj-desc">Python-based CLI tool that accepts simple command arguments and
+                            performs tasks accordingly — a custom shell-like utility.</div>
+                        <div class="full-proj-footer">
+                            <span class="proj-badge">Python</span>
+                            <span class="proj-link-btn"><i class="fab fa-github"></i> View on GitHub</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/GhalibFaruqe101/password_generator"
+                    class="full-proj-card reveal reveal-delay-3" target="_blank" rel="noopener">
+                    <div class="full-proj-img-wrap"><img src="img/pass.png" alt="Password Generator"></div>
+                    <div class="full-proj-body">
+                        <div class="full-proj-title">Password Generator</div>
+                        <div class="full-proj-desc">GUI application using Python and Tkinter to generate secure random
+                            passwords with copy-to-clipboard support.</div>
+                        <div class="full-proj-footer">
+                            <span class="proj-badge">Python / Tkinter</span>
+                            <span class="proj-link-btn"><i class="fab fa-github"></i> View on GitHub</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ACHIEVEMENTS -->
+        <section id="achievements">
+            <div class="section-label reveal">06 — Achievements</div>
+            <h2 class="section-title reveal">My <span>Achievements</span></h2>
+            <div class="ach-grid">
+                <div class="ach-card reveal reveal-delay-1">
+                    <div class="ach-img-wrap"><img src="img/aiesec.jpg" alt="AIESEC"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">💼</div>
+                        <div class="ach-title">AIESEC Global Leadership Summit</div>
+                        <div class="ach-desc">Participated in the Annual AIESEC Global Leadership Summit, representing
+                            Bangladesh.</div>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="img/pass_man.png" alt="Project 2" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">password Manager</h3>
-                        <p class="card-description">This is a simple command-line password manager written in Python. It allows users to register with a master password, log in, and securely store and retrieve passwords for various websites. Passwords are encrypted using the cryptography library to ensure security.</p>
-                        <!-- <p class="card-date">May - August 2023</p> -->
-                        <a href="https://github.com/GhalibFaruqe101/password_manager" class="project-link">View Project</a>
+                <div class="ach-card reveal reveal-delay-2">
+                    <div class="ach-img-wrap"><img src="img/conference.png" alt="IEEE Conference"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">🖥️</div>
+                        <div class="ach-title">IEEE Virtual Conference</div>
+                        <div class="ach-desc">Attended the Virtual Conference organized by IEEE, gaining insights into
+                            cutting-edge research.</div>
                     </div>
-                    <div class="card-icon"></div>
                 </div>
-                <div class="card">
-                    <img src="img/detect.png" alt="Project 3" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Rainfall Detection</h3>
-                        <p class="card-description">Developed a rainfall detection system using machine learning techniques. Trained a model on historical rainfall data and used it to predict future rainfall patterns.</p>
-                        <!-- <p class="card-date">September - December 2023</p> -->
-                        <a href="https://github.com/GhalibFaruqe101/ML-self-learning-/tree/main/RainfallDetection" class="project-link">View Project</a>
+                <div class="ach-card reveal reveal-delay-3">
+                    <div class="ach-img-wrap"><img src="img/mun.jpeg" alt="NDC-MUN"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">🌍</div>
+                        <div class="ach-title">NDC-MUN — Arab League</div>
+                        <div class="ach-desc">Participated in NDC-MUN representing Iraq under the Arab League committee.
+                        </div>
                     </div>
-                    <div class="card-icon"></div>
                 </div>
-                <div class="card">
-                    <img src="img/rks.png" alt="Project 3" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Rock Paper Scissors</h3>
-                        <p class="card-description">A simple beginner-friendly introduction to JavaScript, CSS, and HTML, this project offers learners to grasp fundamental concepts without overwhelming complexity.</p>
-                        <!-- <p class="card-date">September - December 2023</p> -->
-                        <a href="https://github.com/GhalibFaruqe101/Rock-Paper-Scissor-using-JS/tree/main" class="project-link">View Project</a>
+                <div class="ach-card reveal reveal-delay-1">
+                    <div class="ach-img-wrap"><img src="img/cricket.jpg" alt="Gulshan Youth Club"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">🏏</div>
+                        <div class="ach-title">Gulshan Youth Club — Cricket</div>
+                        <div class="ach-desc">Represented Gulshan Youth Club U-16 cricket team in local tournaments.
+                        </div>
                     </div>
-                    <div class="card-icon"></div>
                 </div>
-                <div class="card">
-                    <img src="img/cmd.png" alt="Project 3" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Command Line Argument</h3>
-                        <p class="card-description">This is a command line using python. It takes simple command arguments and based on the commands it perform task.</p>
-                        <!-- <p class="card-date">September - December 2023</p> -->
-                        <a href="https://github.com/GhalibFaruqe101/CommandLine.py/tree/main" class="project-link">View Project</a>
+                <div class="ach-card reveal reveal-delay-2">
+                    <div class="ach-img-wrap"><img src="img/wc.jpeg" alt="ICC World Cup"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">🏆</div>
+                        <div class="ach-title">ICC World Cup</div>
+                        <div class="ach-desc">Attended ICC World Cup and had a memorable photo with former captain of
+                            Sri Lanka.</div>
                     </div>
-                    <div class="card-icon"></div>
                 </div>
-                <div class="card">
-                    <img src="img/pass.png" alt="Project 4" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">password Generator</h3>
-                        <p class="card-description">This is a simple password generator application built using Python and Tkinter. It allows users to generate secure, random passwords of a specified length and provides options to clear and copy the generated password.</p>
-                        <!-- <p class="card-date">January - March 2024</p> -->
-                        <a href="https://github.com/GhalibFaruqe101/password_generator" class="project-link">View Project</a>
+                <div class="ach-card reveal reveal-delay-3">
+                    <div class="ach-img-wrap"><img src="img/som.jpeg" alt="Student of the Month"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">⭐</div>
+                        <div class="ach-title">Student Of The Month</div>
+                        <div class="ach-desc">Awarded Student of the Month certificate for outstanding academic
+                            performance.</div>
                     </div>
-                    <div class="card-icon"></div>
+                </div>
+                <div class="ach-card reveal reveal-delay-1">
+                    <div class="ach-img-wrap"><img src="img/car.jpeg" alt="Annual Competition"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">🎯</div>
+                        <div class="ach-title">Annual Competition</div>
+                        <div class="ach-desc">Participated in the school's Annual Competition event.</div>
+                    </div>
+                </div>
+                <div class="ach-card reveal reveal-delay-2">
+                    <div class="ach-img-wrap"><img src="img/car2.jpeg" alt="Art Competition"></div>
+                    <div class="ach-body">
+                        <div class="ach-icon">✍️</div>
+                        <div class="ach-title">Art Competition — Winner</div>
+                        <div class="ach-desc">Won the school art competition showcasing creative illustration skills.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </div><!-- /wrapper -->
+
+    <footer>
+        <p>Crafted with <span>♥</span> by <span>Ghalib Faruqe</span> · 2024</p>
+    </footer>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        /* ── PARTICLES ── */
+        (function () {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [];
+            const COUNT = 60;
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resize);
+            resize();
+
+            function Particle() {
+                this.reset = function () {
+                    this.x = Math.random() * W;
+                    this.y = Math.random() * H;
+                    this.r = Math.random() * 1.4 + 0.3;
+                    this.vx = (Math.random() - 0.5) * 0.35;
+                    this.vy = (Math.random() - 0.5) * 0.35;
+                    this.alpha = Math.random() * 0.35 + 0.08;
+                };
+                this.reset();
+            }
+            for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                particles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > W) p.vx *= -1;
+                    if (p.y < 0 || p.y > H) p.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(99,179,237,${p.alpha})`;
+                    ctx.fill();
                 });
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(99,179,237,${0.07 * (1 - dist / 120)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ── ORBIT ANIMATION (JS-driven so cards stay upright) ── */
+        (function () {
+            const scene = document.getElementById('orbit-scene');
+            if (!scene) return;
+
+            // collect all orbit-pos elements
+            const orbitItems = scene.querySelectorAll('.orbit-pos');
+
+            // parse config from CSS vars set inline
+            const items = Array.from(orbitItems).map(el => {
+                const style = el.style;
+                const r = parseFloat(style.getPropertyValue('--r')) || 120;
+                const dur = parseFloat(style.getPropertyValue('--dur')) || 20;
+                const startDeg = parseFloat(style.getPropertyValue('--start')) || 0;
+                const dir = style.getPropertyValue('--dir').trim() === 'ccw' ? -1 : 1;
+                return { el, r, dur, angle: startDeg * Math.PI / 180, dir, speed: (2 * Math.PI) / (dur * 60) };
             });
+
+            let last = null;
+            function tick(ts) {
+                if (last === null) last = ts;
+                const dt = ts - last;
+                last = ts;
+
+                items.forEach(item => {
+                    item.angle += item.dir * item.speed * dt;
+
+                    const x = Math.cos(item.angle) * item.r;
+                    const y = Math.sin(item.angle) * item.r;
+
+                    // position the card centered at (x,y) relative to scene center
+                    item.el.style.left = '50%';
+                    item.el.style.top = '50%';
+                    // translate: center of scene + offset - half card width
+                    item.el.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+                });
+
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+
+            // pause orbit on hover so users can click cards
+            const cards = scene.querySelectorAll('.proj-card');
+            let paused = false;
+            cards.forEach(c => {
+                c.addEventListener('mouseenter', () => { paused = true; });
+                c.addEventListener('mouseleave', () => { paused = false; });
+            });
+            // patch tick to respect pause
+            const originalSpeed = items.map(i => i.speed);
+            scene.addEventListener('mouseenter', () => {
+                items.forEach((i, idx) => i.speed = 0);
+            });
+            scene.addEventListener('mouseleave', () => {
+                items.forEach((i, idx) => i.speed = originalSpeed[idx] * i.dir > 0 ? originalSpeed[idx] : -originalSpeed[idx]);
+                // restore correctly
+                items.forEach((i, idx) => i.speed = originalSpeed[idx]);
+            });
+        })();
+
+        /* ── SCROLL REVEAL ── */
+        (function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        })();
+
+        /* ── STICKY HEADER SHADOW ── */
+        (function () {
+            const hdr = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                hdr.classList.toggle('scrolled', window.scrollY > 20);
+            });
+        })();
+
+        /* ── HAMBURGER ── */
+        (function () {
+            const btn = document.getElementById('hamburger');
+            const menu = document.getElementById('nav-mobile');
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('open');
+                menu.classList.toggle('open');
+            });
+            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                btn.classList.remove('open');
+                menu.classList.remove('open');
+            }));
+        })();
+
+        /* ── SMOOTH SCROLL ── */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+
+        /* ── CARD TILT on achievement cards ── */
+        document.querySelectorAll('.ach-card, .full-proj-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `translateY(-6px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+            });
+            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
         });
     </script>
 </body>
+
 </html>
