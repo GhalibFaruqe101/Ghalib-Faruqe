@@ -5,8 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reading Journal — Ghalib Faruqe</title>
-  <meta name="description"
-    content="Book reviews and reading journal by Ghalib Faruqe — tech, philosophy, self-improvement and more.">
+  <meta name="description" content="Book reviews and reading journal by Ghalib Faruqe.">
 
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@300;400;600;700;900&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
@@ -24,21 +23,19 @@
 
     :root {
       --bg: #050810;
-      --bg2: #0b0f1a;
       --card: rgba(255, 255, 255, 0.04);
-      --card-hover: rgba(255, 255, 255, 0.07);
+      --card-h: rgba(255, 255, 255, 0.07);
       --border: rgba(255, 255, 255, 0.08);
       --border-h: rgba(99, 179, 237, 0.4);
       --accent: #63b3ed;
       --accent2: #9f7aea;
       --accent3: #68d391;
-      --gold: #f6c90e;
       --text: #e2e8f0;
       --muted: #718096;
       --glow: rgba(99, 179, 237, 0.12);
-      --font-mono: 'JetBrains Mono', monospace;
-      --font-sans: 'Inter', sans-serif;
-      --font-serif: 'Merriweather', serif;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+      --serif: 'Merriweather', serif;
     }
 
     html {
@@ -46,7 +43,7 @@
     }
 
     body {
-      font-family: var(--font-sans);
+      font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
@@ -67,7 +64,7 @@
       border-radius: 99px;
     }
 
-    /* CANVAS */
+    /* PARTICLES */
     #particles-canvas {
       position: fixed;
       inset: 0;
@@ -75,7 +72,7 @@
       pointer-events: none;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     header {
       position: fixed;
       top: 0;
@@ -99,7 +96,7 @@
     }
 
     .nav-logo {
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-weight: 700;
       font-size: 1rem;
       color: var(--accent);
@@ -121,11 +118,10 @@
     nav {
       display: flex;
       gap: 0.25rem;
-      align-items: center;
     }
 
     nav a {
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.78rem;
       color: var(--muted);
       text-decoration: none;
@@ -197,7 +193,7 @@
     }
 
     .nav-mobile a {
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.9rem;
       color: var(--muted);
       text-decoration: none;
@@ -217,16 +213,16 @@
       padding-top: 64px;
     }
 
-    /* HERO BANNER */
+    /* PAGE HERO */
     .page-hero {
-      padding: 5rem 2rem 4rem;
+      padding: 5rem 2rem 3rem;
       max-width: 1100px;
       margin: 0 auto;
       text-align: center;
     }
 
     .page-tag {
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.75rem;
       color: var(--accent);
       letter-spacing: 0.18em;
@@ -237,7 +233,7 @@
     }
 
     .page-title {
-      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.1;
@@ -245,21 +241,21 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       opacity: 0;
       animation: fadeUp 0.7s 0.35s forwards;
     }
 
     .page-sub {
       color: var(--muted);
-      max-width: 540px;
+      max-width: 520px;
       margin: 0 auto 2.5rem;
-      font-size: 1rem;
+      font-size: 0.95rem;
       opacity: 0;
       animation: fadeUp 0.7s 0.5s forwards;
     }
 
-    /* STATS ROW */
+    /* STATS */
     .stats-row {
       display: flex;
       justify-content: center;
@@ -274,30 +270,30 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.15rem;
     }
 
     .stat-num {
-      font-family: var(--font-mono);
-      font-size: 2rem;
+      font-family: var(--mono);
+      font-size: 1.9rem;
       font-weight: 700;
       color: var(--accent);
     }
 
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--muted);
       letter-spacing: 0.06em;
     }
 
-    /* SEARCH + FILTER */
+    /* CONTROLS */
     .controls {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       align-items: center;
       max-width: 1100px;
-      margin: 0 auto 3rem;
+      margin: 0 auto 2.5rem;
       padding: 0 2rem;
       opacity: 0;
       animation: fadeUp 0.7s 0.8s forwards;
@@ -320,12 +316,12 @@
 
     .search-input {
       width: 100%;
-      padding: 0.7rem 1rem 0.7rem 2.5rem;
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
       color: var(--text);
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.82rem;
       outline: none;
       transition: border-color 0.25s, box-shadow 0.25s;
@@ -347,7 +343,7 @@
     }
 
     .pill {
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.72rem;
       letter-spacing: 0.05em;
       padding: 0.4rem 0.9rem;
@@ -366,50 +362,27 @@
       background: rgba(99, 179, 237, 0.1);
     }
 
-    /* SORT */
-    .sort-select {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text);
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.55rem 1rem;
-      outline: none;
-      cursor: pointer;
-      transition: border-color 0.25s;
-    }
-
-    .sort-select:focus {
-      border-color: var(--border-h);
-    }
-
-    .sort-select option {
-      background: #0b0f1a;
-    }
-
-    /* GRID */
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.75rem;
+    /* ── BOOK LIST ── */
+    .books-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 2rem 5rem;
     }
 
-    /* BOOK CARD */
+    /* HORIZONTAL BOOK CARD */
     .book-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
       transition: transform 0.35s cubic-bezier(.25, .46, .45, .94),
         border-color 0.35s, box-shadow 0.35s, background 0.35s;
       position: relative;
-      cursor: pointer;
     }
 
     .book-card::before {
@@ -424,10 +397,10 @@
     }
 
     .book-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       border-color: var(--border-h);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(99, 179, 237, 0.1);
-      background: var(--card-hover);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 179, 237, 0.08);
+      background: var(--card-h);
     }
 
     .book-card:hover::before {
@@ -438,12 +411,12 @@
       display: none;
     }
 
-    /* COVER */
+    /* LEFT — cover image */
     .book-cover {
       position: relative;
-      height: 220px;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--bg2), #111827);
+      background: linear-gradient(135deg, #111827, #1a1a2e);
+      min-height: 200px;
     }
 
     .book-cover img {
@@ -451,7 +424,8 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s cubic-bezier(.25, .46, .45, .94), filter 0.5s;
-      filter: brightness(0.8);
+      filter: brightness(0.85);
+      display: block;
     }
 
     .book-card:hover .book-cover img {
@@ -459,14 +433,40 @@
       filter: brightness(1);
     }
 
+    /* placeholder when no image */
+    .book-cover-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .book-cover-placeholder i {
+      font-size: 2.5rem;
+      color: var(--border-h);
+    }
+
+    .book-cover-placeholder span {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
     .book-genre-badge {
       position: absolute;
-      top: 1rem;
-      left: 1rem;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.62rem;
       letter-spacing: 0.1em;
-      padding: 0.25rem 0.65rem;
+      text-transform: uppercase;
+      padding: 0.22rem 0.6rem;
       border-radius: 99px;
       background: rgba(5, 8, 16, 0.75);
       backdrop-filter: blur(8px);
@@ -474,324 +474,51 @@
       color: var(--text);
     }
 
-    .book-rating-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      background: rgba(246, 201, 14, 0.15);
-      border: 1px solid rgba(246, 201, 14, 0.35);
-      color: var(--gold);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .book-cover-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #111827, #1a1a2e);
-    }
-
-    .book-cover-placeholder i {
-      font-size: 3rem;
-      color: var(--border-h);
-    }
-
-    .book-cover-placeholder span {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    /* BODY */
+    /* RIGHT — content */
     .book-body {
-      padding: 1.4rem 1.5rem 1.8rem;
+      padding: 1.6rem 2rem;
       display: flex;
       flex-direction: column;
-      flex: 1;
-    }
-
-    .book-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.6rem;
+      justify-content: center;
+      gap: 0.6rem;
     }
 
     .book-author {
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.72rem;
       color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    .book-date {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-      margin-left: auto;
+      letter-spacing: 0.06em;
     }
 
     .book-title {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-family: var(--serif);
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 0.7rem;
-      line-height: 1.35;
-    }
-
-    .stars {
-      display: flex;
-      gap: 2px;
-      margin-bottom: 0.85rem;
-    }
-
-    .stars i {
-      font-size: 0.75rem;
-      color: var(--gold);
-    }
-
-    .stars i.empty {
-      color: rgba(246, 201, 14, 0.2);
+      line-height: 1.3;
     }
 
     .book-review {
       font-size: 0.88rem;
       color: var(--muted);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1.2rem;
+      line-height: 1.7;
       display: -webkit-box;
-      -webkit-line-clamp: 4;
+      -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    .book-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-    }
-
-    .read-more {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s;
-    }
-
-    .read-more:hover {
-      gap: 0.7rem;
-    }
-
-    .pages-badge {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-    }
-
-    /* MODAL */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .modal-overlay.open {
-      display: flex;
-      animation: fadeIn 0.25s;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    .modal {
-      background: #0d1120;
-      border: 1px solid var(--border-h);
-      border-radius: 24px;
-      max-width: 680px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      animation: scaleIn 0.3s cubic-bezier(.25, .46, .45, .94);
-      padding: 2.5rem;
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.92);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .modal-close {
-      float: right;
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 1.4rem;
-      cursor: pointer;
-      line-height: 1;
-      transition: color 0.2s;
-      margin-left: 1rem;
-    }
-
-    .modal-close:hover {
-      color: #fff;
-    }
-
-    .modal-genre {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .modal-title {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.4rem;
-      line-height: 1.3;
-    }
-
-    .modal-author {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .modal-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-stars i {
-      font-size: 0.9rem;
-      color: var(--gold);
-    }
-
-    .modal-stars i.empty {
-      color: rgba(246, 201, 14, 0.2);
-    }
-
-    .modal-divider {
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-section-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .modal-review {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-quote {
-      border-left: 3px solid var(--accent2);
-      padding: 0.8rem 1.2rem;
-      background: rgba(159, 122, 234, 0.07);
-      border-radius: 0 8px 8px 0;
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 0.9rem;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-info-row {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .modal-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .modal-info-label {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .modal-info-val {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--text);
-    }
-
-    /* EMPTY STATE */
+    /* empty state */
     .empty-state {
       text-align: center;
       padding: 5rem 2rem;
+      display: none;
       max-width: 400px;
       margin: 0 auto;
-      display: none;
     }
 
     .empty-state i {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: var(--border-h);
       margin-bottom: 1rem;
     }
@@ -806,7 +533,7 @@
       text-align: center;
       padding: 3rem 2rem;
       border-top: 1px solid var(--border);
-      font-family: var(--font-mono);
+      font-family: var(--mono);
       font-size: 0.75rem;
       color: var(--muted);
       position: relative;
@@ -833,7 +560,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
     .reveal.visible {
@@ -841,16 +568,16 @@
       transform: translateY(0);
     }
 
-    .reveal-delay-1 {
-      transition-delay: 0.1s;
+    .reveal-d1 {
+      transition-delay: 0.08s;
     }
 
-    .reveal-delay-2 {
-      transition-delay: 0.2s;
+    .reveal-d2 {
+      transition-delay: 0.16s;
     }
 
-    .reveal-delay-3 {
-      transition-delay: 0.3s;
+    .reveal-d3 {
+      transition-delay: 0.24s;
     }
 
     /* RESPONSIVE */
@@ -863,26 +590,23 @@
         display: flex;
       }
 
-      .books-grid {
+      .book-card {
         grid-template-columns: 1fr;
       }
 
-      .modal {
-        padding: 1.5rem;
+      .book-cover {
+        min-height: 180px;
+        max-height: 220px;
       }
 
-      .modal-title {
-        font-size: 1.4rem;
+      .book-body {
+        padding: 1.2rem 1.4rem;
       }
     }
 
     @media (max-width: 480px) {
       .stats-row {
         gap: 1.5rem;
-      }
-
-      .stat-num {
-        font-size: 1.5rem;
       }
     }
   </style>
@@ -902,9 +626,7 @@
       <a href="projects.html">Projects</a>
       <a href="books.html" class="active">Reading Journal</a>
     </nav>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </header>
 
   <div class="nav-mobile" id="nav-mobile">
@@ -917,17 +639,16 @@
 
   <div class="wrapper">
 
-    <!-- HERO -->
+    <!-- PAGE HERO -->
     <div class="page-hero">
       <div class="page-tag">// reading journal</div>
       <h1 class="page-title">Books I've Read</h1>
-      <p class="page-sub">Short reviews, favourite quotes, and key takeaways from books that shaped the way I think.</p>
-
+      <p class="page-sub">Reviews and thoughts on books that shaped how I think about technology, people, and the world.
+      </p>
       <div class="stats-row">
-        <div class="stat"><span class="stat-num" id="total-count">6</span><span class="stat-label">Books Read</span>
+        <div class="stat"><span class="stat-num" id="total-count">0</span><span class="stat-label">Books Read</span>
         </div>
-        <div class="stat"><span class="stat-num">4.2</span><span class="stat-label">Avg Rating</span></div>
-        <div class="stat"><span class="stat-num">2026</span><span class="stat-label">Since</span></div>
+        <!-- <div class="stat"><span class="stat-num">2025</span><span class="stat-label">Since</span></div> -->
       </div>
     </div>
 
@@ -938,41 +659,23 @@
         <input id="search-input" class="search-input" type="text" placeholder="Search books or authors…"
           autocomplete="off">
       </div>
-
       <div class="filter-pills" id="filter-pills">
         <button class="pill active" data-genre="all">All</button>
         <button class="pill" data-genre="technology">Technology</button>
         <button class="pill" data-genre="philosophy">Philosophy</button>
-        <button class="pill" data-genre="self-improvement">Self-Improvement</button>
-        <button class="pill" data-genre="psychology">Psychology</button>
-        <button class="pill" data-genre="biography">Biography</button>
+        <button class="pill" data-genre="Natural Science">Natural Science</button>
+        <button class="pill" data-genre="Science Fiction">Science Fiction</button>
+
       </div>
-
-      <select class="sort-select" id="sort-select">
-        <option value="newest">Newest First</option>
-        <option value="rating">Highest Rated</option>
-        <option value="title">A → Z</option>
-      </select>
     </div>
 
-    <!-- BOOKS GRID -->
-    <div class="books-grid" id="books-grid">
-      <!-- Cards injected by JS -->
-    </div>
-
+    <!-- BOOK LIST -->
+    <div class="books-list" id="books-list"></div>
     <div class="empty-state" id="empty-state">
       <i class="fas fa-book-open"></i>
-      <p>No books match your search. Try a different query or filter.</p>
+      <p>No books match your search. Try a different filter.</p>
     </div>
 
-  </div><!-- /wrapper -->
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modal-overlay">
-    <div class="modal" id="modal-content">
-      <button class="modal-close" id="modal-close" aria-label="Close">×</button>
-      <div id="modal-body"></div>
-    </div>
   </div>
 
   <footer>
@@ -980,224 +683,87 @@
   </footer>
 
   <script>
-    /* ═══════════════════════════════════════════════
-       BOOK DATA
-    ═══════════════════════════════════════════════ */
+    /* ── BOOK DATA ── */
     const books = [
       {
         id: 1,
-        title: "The Pragmatic Programmer",
-        author: "David Thomas & Andrew Hunt",
-        genre: "technology",
-        rating: 5,
-        pages: 352,
-        date: "2026-01",
+        title: "The Sixth Extinction",
+        author: "Elizabeth Kolbert",
+        genre: "Natural History",
         cover: null,
-        coverIcon: "fa-code",
-        summary: "A timeless masterpiece that changed how I approach software development. Every chapter delivers actionable wisdom — from DRY principles to career tips that genuinely stuck with me.",
-        review: "The Pragmatic Programmer is the kind of book you return to repeatedly throughout your career. Thomas and Hunt write with a clarity that makes complex ideas feel obvious in hindsight. The 'broken windows' metaphor for code quality alone is worth the read. What struck me most was the discussion on tracer bullets — a development approach that resonates deeply with how I prefer to work: iterative, visible progress over large, invisible chunks. The chapter on debugging is nothing short of revelatory. Highly recommended for anyone serious about software craftsmanship.",
-        quote: "An investment in knowledge always pays the best interest.",
-        takeaways: ["DRY — Don't Repeat Yourself", "Broken windows theory applied to code", "Tracer bullets over heavy planning", "Programming by coincidence vs. programming deliberately"]
+        coverIcon: "fa-book",
+        review: "Elizabeth Kolbert's The Sixth Extinction is a compelling exploration of humanity's role in accelerating the sixth mass extinction. The book's meticulous research, vivid field reporting and engaging narrative make this an essential read for anyone curious about our ecosystems. Kolbert travels the world — from the rainforests of the Amazon to the reefs of the Great Barrier — interviewing scientists and witnessing vanishing species firsthand."
       },
+
       {
         id: 2,
-        title: "Deep Work",
-        author: "Cal Newport",
-        genre: "self-improvement",
-        rating: 5,
-        pages: 296,
-        date: "2025-12",
+        title: "The Exhalation",
+        author: "Ted Chiang",
+        genre: "Science Fiction",
         cover: null,
-        coverIcon: "fa-brain",
-        summary: "Cal Newport makes a compelling case for focused, distraction-free work in an age of constant interruption. A book that genuinely transformed how I study and build projects.",
-        review: "Newport's central thesis — that the ability to perform deep, focused work is becoming increasingly rare and simultaneously increasingly valuable — feels more urgent every year. His four rules (work deeply, embrace boredom, quit social media, drain the shallows) are practical and backed by compelling case studies. I particularly appreciated the section differentiating 'deep work' from 'pseudo-productive busyness'. Since reading this, I've restructured my study sessions around 90-minute deep work blocks. The ROI on focused study is real.",
-        quote: "What we choose to focus on and what we choose to ignore — plays in defining the quality of our life.",
-        takeaways: ["Deep vs shallow work distinction", "Time-blocking as a productivity tool", "Embrace boredom to train concentration", "Social media as a shallow distraction"]
-      },
-      {
-        id: 3,
-        title: "Atomic Habits",
-        author: "James Clear",
-        genre: "self-improvement",
-        rating: 5,
-        pages: 320,
-        date: "2025-11",
-        cover: null,
-        coverIcon: "fa-seedling",
-        summary: "James Clear distills the science of habit formation into a practical framework. The 1% better every day philosophy is simple, actionable, and genuinely life-changing when applied.",
-        review: "Atomic Habits does something rare for a self-help book — it backs its claims with psychology research while remaining eminently readable. The four laws of behaviour change (make it obvious, make it attractive, make it easy, make it satisfying) form a coherent system you can actually apply. I found myself immediately restructuring how I approach daily coding practice. The identity-based habits concept — 'every action is a vote for the type of person you wish to become' — reframed discipline as identity rather than willpower.",
-        quote: "You do not rise to the level of your goals. You fall to the level of your systems.",
-        takeaways: ["1% improvement compounds over time", "Four laws of behaviour change", "Habit stacking technique", "Identity-based habits over outcome-based goals"]
-      },
-      {
-        id: 4,
-        title: "Thinking, Fast and Slow",
-        author: "Daniel Kahneman",
-        genre: "psychology",
-        rating: 4,
-        pages: 499,
-        date: "2025-10",
-        cover: null,
-        coverIcon: "fa-lightbulb",
-        summary: "Kahneman explains the two systems of thought — fast intuitive System 1 and slow deliberate System 2. Dense but rewarding; reshaped how I evaluate my own decisions.",
-        review: "This book is an investment — dense and occasionally academic — but the payoff is substantial. Kahneman's dual-process theory of cognition underpins much of modern behavioural economics and understanding it makes you a sharper thinker. The sections on cognitive biases (anchoring, availability heuristic, loss aversion) were the most immediately applicable to my daily life. I found myself recognising System 1 thinking in real-time after reading this. Not a light read, but essential for anyone who wants to understand why humans — including themselves — make irrational choices.",
-        quote: "Nothing in life is as important as you think it is, while you are thinking about it.",
-        takeaways: ["System 1 vs System 2 thinking", "Cognitive biases and how to counter them", "Loss aversion in decision-making", "Anchoring effects in judgment"]
-      },
-      {
-        id: 5,
-        title: "Meditations",
-        author: "Marcus Aurelius",
-        genre: "philosophy",
-        rating: 5,
-        pages: 256,
-        date: "2025-09",
-        cover: null,
-        coverIcon: "fa-scroll",
-        summary: "The personal journal of a Roman Emperor and Stoic philosopher. Strikingly modern in its wisdom — a reminder that the core challenges of human existence are timeless.",
-        review: "Reading Meditations is like finding a 2,000-year-old personal journal from someone grappling with the same questions we face today. Aurelius writes to himself, not for an audience, which makes the honesty raw and authentic. The Stoic framework — control what you can, accept what you cannot — is deeply practical, not fatalistic. For a CSE student under pressure, the passages on focusing on the present task and not being disturbed by external opinion were particularly grounding. I keep a copy on my desk. A book I will return to many times.",
-        quote: "You have power over your mind, not outside events. Realize this, and you will find strength.",
-        takeaways: ["Stoic dichotomy of control", "Memento mori as motivation", "Virtue as the only true good", "Present-moment focus as a practice"]
-      },
-      {
-        id: 6,
-        title: "Elon Musk",
-        author: "Walter Isaacson",
-        genre: "biography",
-        rating: 4,
-        pages: 688,
-        date: "2025-08",
-        cover: null,
-        coverIcon: "fa-rocket",
-        summary: "Isaacson's exhaustive biography of one of the most polarising figures of our time. Fascinating, often uncomfortable, and full of lessons about ambition, engineering, and the cost of extreme success.",
-        review: "Isaacson had extraordinary access to Musk, which makes this biography uniquely detailed — almost uncomfortably so at times. Whether you admire or critique Musk, studying how he thinks about first-principles problem solving and manufacturing at scale is genuinely educational. The Tesla and SpaceX sections are the strongest — watching the sheer engineering ambition play out in real time is compelling. The book doesn't shy away from his personal failings, which makes it feel balanced rather than hagiographic. As a CSE student interested in technology and innovation, the engineering mindset sections alone justified the read.",
-        quote: "The first step is to establish that something is possible — then probability will occur.",
-        takeaways: ["First-principles thinking over analogy", "Extreme ownership of product outcomes", "Manufacturing as a product in itself", "Mission-driven culture building"]
+        coverIcon: "fa-book",
+        review: "The things that I love about the book Exhalation by Ted Chiang is its simplicity. The story are mundane but alluring. It’s about us,them and everything else that makes us. Among the captivating stories ‘The merchant and the alchemist’s gate’, ‘The lifecycle of software objects’, ‘Dacey’s patent automation nanny, and ‘The grea silence’ stands out for me.The story notes is very interesting, things that inspired the author about the stories."
       }
+
     ];
 
-    /* ═══════════════════════════════════════════════
-       RENDER
-    ═══════════════════════════════════════════════ */
-    function starHTML(rating, cls = 'stars') {
-      let s = `<div class="${cls}">`;
-      for (let i = 1; i <= 5; i++) s += `<i class="fas fa-star${i > rating ? ' empty' : ''}"></i>`;
-      return s + '</div>';
-    }
-
+    /* ── RENDER ── */
     function renderCards(list) {
-      const grid = document.getElementById('books-grid');
+      const container = document.getElementById('books-list');
       const empty = document.getElementById('empty-state');
-      grid.innerHTML = '';
+      container.innerHTML = '';
 
-      if (!list.length) { empty.style.display = 'block'; return; }
+      if (!list.length) {
+        empty.style.display = 'block';
+        return;
+      }
       empty.style.display = 'none';
 
-      list.forEach((book, idx) => {
-        const del = idx < 3 ? `reveal-delay-${idx + 1}` : '';
+      list.forEach((book, i) => {
+        const delay = i < 3 ? `reveal-d${i + 1}` : '';
         const card = document.createElement('div');
-        card.className = `book-card reveal ${del}`;
+        card.className = `book-card reveal ${delay}`;
         card.dataset.id = book.id;
+
+        const coverHTML = book.cover
+          ? `<img src="${book.cover}" alt="${book.title}">`
+          : `<div class="book-cover-placeholder">
+                   <i class="fas ${book.coverIcon}"></i>
+                   <span>${book.genre}</span>
+               </div>`;
+
         card.innerHTML = `
             <div class="book-cover">
-                <div class="book-cover-placeholder">
-                    <i class="fas ${book.coverIcon}"></i>
-                    <span>${book.genre.toUpperCase()}</span>
-                </div>
+                ${coverHTML}
                 <span class="book-genre-badge">${book.genre}</span>
-                <div class="book-rating-badge"><i class="fas fa-star"></i>${book.rating}.0</div>
             </div>
             <div class="book-body">
-                <div class="book-meta">
-                    <span class="book-author">${book.author}</span>
-                    <span class="book-date">${book.date}</span>
-                </div>
+                <div class="book-author">${book.author}</div>
                 <div class="book-title">${book.title}</div>
-                ${starHTML(book.rating)}
-                <p class="book-review">${book.summary}</p>
-                <div class="book-footer">
-                    <button class="read-more" data-id="${book.id}">
-                        Read full review <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <span class="pages-badge">${book.pages} pages</span>
-                </div>
+                <p class="book-review">${book.review}</p>
             </div>`;
-        grid.appendChild(card);
+
+        container.appendChild(card);
       });
 
-      // Observe reveals
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-      // Card click
-      grid.querySelectorAll('.read-more').forEach(btn => {
-        btn.addEventListener('click', e => { e.stopPropagation(); openModal(+btn.dataset.id); });
-      });
-      grid.querySelectorAll('.book-card').forEach(card => {
-        card.addEventListener('click', () => openModal(+card.dataset.id));
-      });
+      // observe newly added cards
+      container.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     }
 
-    /* ═══════════════════════════════════════════════
-       MODAL
-    ═══════════════════════════════════════════════ */
-    function openModal(id) {
-      const b = books.find(x => x.id === id);
-      if (!b) return;
-      const body = document.getElementById('modal-body');
-      body.innerHTML = `
-        <div class="modal-genre">${b.genre}</div>
-        <div class="modal-title">${b.title}</div>
-        <div class="modal-author">by ${b.author}</div>
-        ${starHTML(b.rating, 'modal-stars')}
-        <div class="modal-divider"></div>
-        <div class="modal-section-label">My Review</div>
-        <p class="modal-review">${b.review}</p>
-        <div class="modal-quote">"${b.quote}"</div>
-        <div class="modal-section-label">Key Takeaways</div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem">
-            ${b.takeaways.map(t => `<li style="font-size:0.85rem;color:var(--muted);display:flex;gap:0.6rem;align-items:center"><span style="color:var(--accent3)">▸</span>${t}</li>`).join('')}
-        </ul>
-        <div class="modal-divider"></div>
-        <div class="modal-info-row">
-            <div class="modal-info"><span class="modal-info-label">Pages</span><span class="modal-info-val">${b.pages}</span></div>
-            <div class="modal-info"><span class="modal-info-label">Read</span><span class="modal-info-val">${b.date}</span></div>
-            <div class="modal-info"><span class="modal-info-label">Rating</span><span class="modal-info-val">${b.rating} / 5 ⭐</span></div>
-            <div class="modal-info"><span class="modal-info-label">Genre</span><span class="modal-info-val">${b.genre}</span></div>
-        </div>`;
-      document.getElementById('modal-overlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('modal-overlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('modal-close').addEventListener('click', closeModal);
-    document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-    /* ═══════════════════════════════════════════════
-       FILTER + SEARCH + SORT
-    ═══════════════════════════════════════════════ */
+    /* ── FILTER + SEARCH ── */
     let currentGenre = 'all';
     let currentSearch = '';
-    let currentSort = 'newest';
 
-    function filtered() {
+    function getFiltered() {
       return books
         .filter(b => currentGenre === 'all' || b.genre === currentGenre)
         .filter(b => {
           const q = currentSearch.toLowerCase();
           return !q || b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || b.review.toLowerCase().includes(q);
-        })
-        .sort((a, b) => {
-          if (currentSort === 'rating') return b.rating - a.rating;
-          if (currentSort === 'title') return a.title.localeCompare(b.title);
-          return b.id - a.id; // newest
         });
     }
 
-    function refresh() { renderCards(filtered()); }
+    function refresh() { renderCards(getFiltered()); }
 
     document.getElementById('filter-pills').addEventListener('click', e => {
       if (!e.target.classList.contains('pill')) return;
@@ -1212,56 +778,52 @@
       refresh();
     });
 
-    document.getElementById('sort-select').addEventListener('change', e => {
-      currentSort = e.target.value;
-      refresh();
-    });
-
-    /* ═══════════════════════════════════════════════
-       INTERSECTION OBSERVER
-    ═══════════════════════════════════════════════ */
-    const observer = new IntersectionObserver(entries => {
+    /* ── SCROLL REVEAL ── */
+    const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ═══════════════════════════════════════════════
-       INIT
-    ═══════════════════════════════════════════════ */
+    /* ── INIT ── */
     renderCards(books);
     document.getElementById('total-count').textContent = books.length;
 
-    /* ═══════════════════════════════════════════════
-       PARTICLES
-    ═══════════════════════════════════════════════ */
+    /* ── PARTICLES ── */
     (function () {
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let W, H;
-      const pts = Array.from({ length: 60 }, () => ({
+      const pts = Array.from({ length: 55 }, () => ({
         x: 0, y: 0, r: 0, vx: 0, vy: 0, a: 0,
         reset() {
-          this.x = Math.random() * W; this.y = Math.random() * H;
-          this.r = Math.random() * 1.4 + 0.3;
-          this.vx = (Math.random() - .5) * .35; this.vy = (Math.random() - .5) * .35;
-          this.a = Math.random() * .35 + 0.05;
+          this.x = Math.random() * W;
+          this.y = Math.random() * H;
+          this.r = Math.random() * 1.3 + 0.3;
+          this.vx = (Math.random() - 0.5) * 0.35;
+          this.vy = (Math.random() - 0.5) * 0.35;
+          this.a = Math.random() * 0.3 + 0.05;
         }
       }));
       function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; pts.forEach(p => p.reset()); }
-      window.addEventListener('resize', resize); resize();
+      window.addEventListener('resize', resize);
+      resize();
       function draw() {
         ctx.clearRect(0, 0, W, H);
         pts.forEach(p => {
           p.x += p.vx; p.y += p.vy;
-          if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1;
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
           ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(99,179,237,${p.a})`; ctx.fill();
         });
-        for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.hypot(dx, dy);
-          if (d < 120) {
-            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = `rgba(99,179,237,${.07 * (1 - d / 120)})`; ctx.lineWidth = .5; ctx.stroke();
+        for (let i = 0; i < pts.length; i++) {
+          for (let j = i + 1; j < pts.length; j++) {
+            const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+            const d = Math.hypot(dx, dy);
+            if (d < 120) {
+              ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+              ctx.strokeStyle = `rgba(99,179,237,${0.06 * (1 - d / 120)})`; ctx.lineWidth = 0.5; ctx.stroke();
+            }
           }
         }
         requestAnimationFrame(draw);
@@ -1269,17 +831,18 @@
       draw();
     })();
 
-    /* ═══════════════════════════════════════════════
-       HEADER SCROLL
-    ═══════════════════════════════════════════════ */
+    /* ── HEADER SCROLL ── */
     window.addEventListener('scroll', () => {
       document.getElementById('main-header').classList.toggle('scrolled', scrollY > 20);
     });
 
-    /* HAMBURGER */
-    const hbg = document.getElementById('hamburger'), nmob = document.getElementById('nav-mobile');
+    /* ── HAMBURGER ── */
+    const hbg = document.getElementById('hamburger');
+    const nmob = document.getElementById('nav-mobile');
     hbg.addEventListener('click', () => { hbg.classList.toggle('open'); nmob.classList.toggle('open'); });
-    nmob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('open'); nmob.classList.remove('open'); }));
+    nmob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hbg.classList.remove('open'); nmob.classList.remove('open');
+    }));
   </script>
 </body>
 

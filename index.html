@@ -26,7 +26,7 @@
             --bg: #050810;
             --bg2: #0b0f1a;
             --card: rgba(255, 255, 255, 0.04);
-            --card-hover: rgba(255, 255, 255, 0.08);
+            --card-hover: rgba(21, 175, 192, 0.08);
             --border: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(99, 179, 237, 0.4);
             --accent: #63b3ed;
@@ -1058,6 +1058,26 @@
 
 <body>
 
+    <!-- PAGE LOADER -->
+    <div id="page-loader">
+        <div class="loader-name">ghalib.dev</div>
+        <div class="loader-track">
+            <div class="runner-wrap">
+                <div class="runner">
+                    <div class="runner-head"></div>
+                    <div class="runner-body"></div>
+                    <div class="runner-arms"></div>
+                    <div class="runner-leg-l"></div>
+                    <div class="runner-leg-r"></div>
+                </div>
+            </div>
+        </div>
+        <div class="loader-bar-track">
+            <div class="loader-bar-fill"></div>
+        </div>
+        <div class="loader-pct" id="loader-pct">0%</div>
+    </div>
+
     <canvas id="particles-canvas"></canvas>
 
     <!-- HEADER -->
@@ -1069,6 +1089,7 @@
             <a href="#certificates">Certificates</a>
             <a href="#experience">Experience</a>
             <a href="#social">Contact</a>
+            <!-- <a href="#contact">Message Me</a> -->
             <a href="books.html">Reading Journal</a>
             <a href="#resume" class="highlight">Resume ↗</a>
         </nav>
@@ -1083,6 +1104,7 @@
         <a href="#certificates" class="nav-mobile-link">Certificates</a>
         <a href="#experience" class="nav-mobile-link">Experience</a>
         <a href="#social" class="nav-mobile-link">Contact</a>
+        <!-- <a href="#contact" class="nav-mobile-link">Message Me</a> -->
         <a href="books.html" class="nav-mobile-link">Reading Journal</a>
         <a href="#resume" class="nav-mobile-link">Resume</a>
     </div>
@@ -1136,7 +1158,7 @@
                     <span class="skill-tag">Machine Learning</span>
                     <span class="skill-tag">Linux</span>
                     <span class="skill-tag">Cryptography</span>
-                    <span class="skill-tag">C / C++/ ></C></span>
+                    <span class="skill-tag">C / C++/ c# ></C></span>
                     <span class="skill-tag">HTML / CSS</span>
                     <span class="skill-tag">Git</span>
                     <span class="skill-tag">Java</span>
@@ -1288,9 +1310,30 @@
 
         <div class="divider"></div>
 
+        <!-- CONTACT FORM -->
+
+        <!-- <div class="form-group">
+                        <label for="cf-message">Message</label>
+                        <textarea id="cf-message" rows="5" placeholder="Hey Ghalib" required></textarea>
+                    </div>
+                    <div class="form-submit-row">
+                        <span class="form-hint"><i class="fas fa-lock"></i>Opens your email client</span>
+                        <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap">
+                            <div id="contact-status"></div>
+                            <button type="submit" class="btn btn-primary" id="cf-submit">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div> -->
+        </section>
+
+        <div class="divider"></div>
+
         <!-- RESUME -->
         <section id="resume">
-            <div class="section-label reveal">06 — Resume</div>
+            <div class="section-label reveal">07 — Resume</div>
             <h2 class="section-title reveal">My <span>Resume</span></h2>
             <div class="resume-wrap reveal">
                 <div class="resume-topbar">
@@ -1446,6 +1489,64 @@
             });
             card.addEventListener('mouseleave', () => { card.style.transform = ''; });
         });
+
+        /* ── PAGE LOADER ── */
+        (function () {
+            const loader = document.getElementById('page-loader');
+            const pct = document.getElementById('loader-pct');
+            let count = 0;
+            const tick = setInterval(() => {
+                count += Math.floor(Math.random() * 12) + 4;
+                if (count >= 100) { count = 100; clearInterval(tick); }
+                pct.textContent = count + '%';
+                if (count === 100) {
+                    setTimeout(() => loader.classList.add('hidden'), 220);
+                }
+            }, 90);
+            // Safety: always dismiss after 2.4s
+            setTimeout(() => loader.classList.add('hidden'), 2400);
+        })();
+
+        /* ── CONTACT FORM (mailto) ── */
+        (function () {
+            const form = document.getElementById('contact-form');
+            const status = document.getElementById('contact-status');
+            if (!form) return;
+
+            function showStatus(msg, type) {
+                status.textContent = msg;
+                status.className = type;
+                status.style.display = 'inline-block';
+                setTimeout(() => { status.style.display = 'none'; }, 4000);
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('cf-name').value.trim();
+                const email = document.getElementById('cf-email').value.trim();
+                const subject = document.getElementById('cf-subject').value;
+                const message = document.getElementById('cf-message').value.trim();
+
+                if (!name || !email || !message) {
+                    showStatus('⚠ Please fill in all fields.', 'error');
+                    return;
+                }
+                const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRe.test(email)) {
+                    showStatus('⚠ Enter a valid email address.', 'error');
+                    return;
+                }
+
+                const to = 'your.email@gmail.com';   // ← replace with your real email
+                const sub = encodeURIComponent(`[Portfolio] ${subject} — from ${name}`);
+                const body = encodeURIComponent(
+                    `Hi Ghalib,\n\n${message}\n\n---\nFrom: ${name}\nEmail: ${email}`
+                );
+                window.location.href = `mailto:${to}?subject=${sub}&body=${body}`;
+                showStatus('✓ Opening your email client…', 'success');
+                form.reset();
+            });
+        })();
     </script>
 </body>
 
