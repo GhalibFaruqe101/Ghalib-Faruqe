@@ -622,7 +622,7 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="index.html#education">Education</a>
-      <a href="index.html#experience">Experience</a>
+      <!-- <a href="index.html#experience">Experience</a> -->
       <a href="projects.html">Projects</a>
       <a href="books.html" class="active">Reading Journal</a>
     </nav>
@@ -632,7 +632,7 @@
   <div class="nav-mobile" id="nav-mobile">
     <a href="index.html">Home</a>
     <a href="index.html#education">Education</a>
-    <a href="index.html#experience">Experience</a>
+    <!-- <a href="index.html#experience">Experience</a> -->
     <a href="projects.html">Projects</a>
     <a href="books.html">Reading Journal</a>
   </div>
@@ -661,10 +661,11 @@
       </div>
       <div class="filter-pills" id="filter-pills">
         <button class="pill active" data-genre="all">All</button>
-        <button class="pill" data-genre="technology">Technology</button>
-        <button class="pill" data-genre="philosophy">Philosophy</button>
-        <button class="pill" data-genre="Natural Science">Natural Science</button>
+        <button class="pill" data-genre="Technology">Technology</button>
+        <button class="pill" data-genre="Philosophy">Philosophy</button>
+        <button class="pill" data-genre="Natural History">Natural History</button>
         <button class="pill" data-genre="Science Fiction">Science Fiction</button>
+        <button class="pill" data-genre="History">History</button>
 
       </div>
     </div>
@@ -707,9 +708,9 @@
 
       {
         id: 3,
-        title: "2000 Years of Debt",
-        author: "N/A",
-        genre: "Economics / History",
+        title: "Debt: The First 5,000 Years",
+        author: "David Graeber",
+        genre: "History",
         cover: null,
         coverIcon: "fa-coins",
         review: "A fascinating look at how debt has been a fundamental driver of human civilization for two millennia. The book brilliantly traces the philosophical and moral arguments around who 'deserves' what, showing how these debates have repeatedly shaped societies. It's a comforting reminder that every few decades, a new 'crazy' idea about how the economy really works comes along, is tried by governments, and yields a mix of success and terrible consequences. A superb introduction to how modern economic theories rest on the bold claims of daring thinkers and the subsequent chaos of their models meeting reality."
@@ -717,7 +718,7 @@
       {
         id: 4,
         title: "Little History of Economics",
-        author: "N/A",
+        author: "Niall Kishtainy",
         genre: "Economics",
         cover: null,
         coverIcon: "fa-chart-line",
@@ -736,7 +737,7 @@
         id: 7,
         title: "Why Nations Fail",
         author: "Daron Acemoglu and James A. Robinson",
-        genre: "Economics / Political Science",
+        genre: "Political Science",
         cover: null,
         coverIcon: "fa-globe-americas",
         review: "A monumental and provocative book that argues a nation's economic success or failure is determined not by its geography or culture, but by its political and economic institutions. The authors draw a sharp distinction between 'inclusive' institutions that allow for broad-based prosperity and 'extractive' ones designed to benefit a small elite. Packed with fascinating historical anecdotes from ancient Rome to modern-day Sierra Leone, it's a stimulating read. While some critics find its view of Western institutions overly romantic and its dismissal of China's growth unconvincing, it remains an essential and conversation-starting text on world inequality."
@@ -748,13 +749,43 @@
         genre: "History",
         cover: null,
         coverIcon: "fa-crown",
-        review: "A fascinating untold story of how Queen Elizabeth I and Protestant England forged unlikely political and economic alliances with the Muslim world—specifically the Ottoman, Persian, and Moroccan empires—to escape their European isolation and counter Catholic Spain. The book brilliantly weaves together diplomacy, trade, and cultural exchange, showing how these relationships even influenced the works of Shakespeare. While it can get a bit dry in places with lists of dates and names, it's at its best when analyzing how this 'Islamic connection' seeped into the English imagination, reshaping our understanding of the Elizabethan era."
+        review: "A fascinating untold story of how Queen Elizabeth I and Protestant England forged unlikely political and economic alliances with the Muslim world—specifically the Ottoman, Persian, and Moroccan empires to escape their European isolation and counter Catholic Spain. The book brilliantly weaves together diplomacy, trade, and cultural exchange, showing how these relationships even influenced the works of Shakespeare. While it can get a bit dry in places with lists of dates and names, it's at its best when analyzing how this 'Islamic connection' seeped into the English imagination, reshaping our understanding of the Elizabethan era."
       }
+      [
+      {
+        id: 9,
+        title: "Project Hail Mary",
+        author: "Andy Weir",
+        genre: "Science Fiction",
+        cover: null,
+        coverIcon: "fa-rocket",
+        review: "Absolutely amaze! This book is a masterclass in blending science with immense heart.Dark Matter is the story of Jason Dessen, an intensely devoted family man with a lackluster career. One day he's abducted by a mysterious stranger, and every assumption he'd had about his life is yanked away. He finds himself in a disorienting world both similar and different from his 'real' life."
+      },
+      {
+        id: 10,
+        title: "Dark Matter",
+        author: "Sheree R. Thomas (Editor)",
+        genre: "Science Fiction",
+        cover: null,
+        coverIcon: "fa-book-open",
+        review: "A groundbreaking anthology series that brings together speculative fiction from the African diaspora. The title brilliantly alludes to cosmological 'dark matter'—invisible yet essential to highlight how Black voices have been historically overlooked in the genre [citation:2]. The first volume, 'A Century of Speculative Fiction from the African Diaspora,' won the World Fantasy Award and features an incredible lineup including Octavia Butler, Samuel R. Delany, and W.E.B. Du Bois, alongside insightful essays on race and science fiction [citation:2]. The second volume, 'Reading the Bones,' continues this vital work, offering stories that challenge, illuminate, and expand our understanding of what speculative fiction can be. Essential reading for anyone wanting to discover the rich contributions of Black writers to the field [citation:5]."
+      },
+      {
+        id: 11,
+        title: "A Thousand Splendid Suns",
+        author: "Khaled Hosseini",
+        genre: "Historical Fiction",
+        cover: null,
+        coverIcon: "fa-heart",
+        review: "A heartbreaking and beautiful novel that follows the lives of two Afghan women, Mariam and Laila, whose paths converge in devastating ways. Set against the backdrop of Kabul's tumultuous history from the Soviet invasion to Taliban rule Hosseini crafts an intimate portrait of resilience, friendship, and sacrifice. The title comes from a 17th-century poem about Kabul, evoking 'the thousand splendid suns that hide behind her walls'"
+      }
+      ]
+
 
 
     ];
 
-    /* ── RENDER ── */
+
     function renderCards(list) {
       const container = document.getElementById('books-list');
       const empty = document.getElementById('empty-state');
